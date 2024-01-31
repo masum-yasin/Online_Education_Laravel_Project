@@ -13,14 +13,12 @@
         </nav>
       </div>
       <div class="row">
-        
-        <div class="col-12 grid-margin stretch-card">
+      <div class="col-12 grid-margin stretch-card">
           @if (session('msg'))
           <div class="alert alert-danger">
             {{session('msg')}}
           </div>
-              
-          @endif
+              @endif
           <div class="card">
             <div class="card-body">
              <form class="forms-sample" method="post" action="{{route('category.store')}}">
@@ -35,11 +33,7 @@
             </div>
           </div>
         </div>
-        
-      
-      
-      </div>
+       </div>
     </div>
-   
   </div>
 @endsection

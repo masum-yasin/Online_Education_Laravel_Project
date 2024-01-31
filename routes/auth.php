@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CourseController;
+use App\Http\Controllers\backend\LessonController;
 use App\Http\Controllers\backend\SCategoryController;
 use App\Http\Controllers\backend\SCourseController;
 use Illuminate\Support\Facades\Route;
@@ -69,7 +70,7 @@ Route::middleware('auth')->group(function () {
                 ->name('logout');
 
 
-                // Course Route Start//
+            // Course Route Start//
                 Route::get('course',[CourseController::class,'index'])->name('course.index');
                 Route::get('course.create',[CourseController::class,'create'])->name('course.create');
                 Route::post('course.store',[CourseController::class,'store'])->name('course.store');
@@ -77,11 +78,7 @@ Route::middleware('auth')->group(function () {
                 Route::post('course/update/{id}',[CourseController::class,'update'])->name('course.update');
                 Route::get('course/delete/{id}',[CourseController::class,'destroy'])->name('course.delete');
 
-
-
-
-
-                // course category route start//
+                 // course category route start//
                 Route::get('category',[CategoryController::class,'index'])->name('category.index');
                 Route::get('category/create',[CategoryController::class,'create'])->name('category.create');
                 Route::post('category/store',[CategoryController::class,'store'])->name('category.store');
@@ -89,16 +86,16 @@ Route::middleware('auth')->group(function () {
                 Route::post('category/update/{id}',[CategoryController::class,'update'])->name('category.update');
                 Route::get('category/delete/{id}',[CategoryController::class,'destroy'])->name('category.destroy');
 
-
-
-                
-               // separate of studetn course
+             // separate of studetn course
                 Route::get('scourse',[SCourseController::class,'index'])->name('scourse.index');
                 Route::get('scourse/create',[SCourseController::class,'create'])->name('scourse.create');
                 Route::post('scourse/store',[SCourseController::class,'store'])->name('scourse.store');
                 Route::get('scourse/edit/{id}',[SCourseController::class,'edit'])->name('scourse.edit');
                 Route::post('scourse/update/{id}',[SCourseController::class,'update'])->name('scourse.update');
                 Route::get('scourse/delete/{id}',[SCourseController::class,'destroy'])->name('scourse.destroy');
+
+                // resource Routing Start//
+                Route::resource('lesson',LessonController::class);
 
                 
 });

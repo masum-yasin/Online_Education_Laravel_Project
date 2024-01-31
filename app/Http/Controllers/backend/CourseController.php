@@ -34,13 +34,17 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $validate = $request->validate([
+           'course_name'=>'required|min:4',
+            'course_fee'=>'required|min:4',
             'image'=>'mimes:jpg,jpeg,png',
+            'course_duration'=>'required|min:4',
+            'desc'=>'required|min:4',
         ]);
 
         $filename = time(). "." . $request->image->extension();
 
-       if($validated){
+       if($validate){
         $data = [
             'image'=>$filename,
             'course_name'=>$request->course_name,
@@ -52,9 +56,9 @@ class CourseController extends Controller
        }
       
      
-    //   print_r($data);
+      print_r($data);
     if(Course::create($data)){
-        $request->image->move('uploads',$filename);
+        $request->image->move('uploads/',$filename);
         return redirect('course')->with('msg','Course Sussessfully Store');
     }
     }

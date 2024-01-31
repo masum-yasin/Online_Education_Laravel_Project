@@ -64,7 +64,7 @@
           <span class="menu-title">Dashboard</span>
         </a>
       </li>
-
+{{-- Course Category --}}
       <li class="nav-item menu-items">
         <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
           <span class="menu-icon">
@@ -90,13 +90,13 @@
           <span class="menu-icon">
             <i class="mdi mdi-laptop"></i>
           </span>
-          <span class="menu-title">Courses</span>
+          <span class="menu-title">Courses Details</span>
           <i class="menu-arrow"></i>
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href=" {{route('course.create')}}">Add New Course</a></li>
-            <li class="nav-item"> <a class="nav-link" href="{{route('course.index')}}">All Course</a></li>
+            <li class="nav-item"> <a class="nav-link" href=" {{route('course.create')}}">Add New Course Detail</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('course.index')}}">All Course Details</a></li>
          
           </ul>
         </div>
@@ -125,6 +125,27 @@
         </div>
       </li>
 
+      {{-- Course Lesson --}}
+      <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#lesson" aria-expanded="false" aria-controls="lesson">
+          <span class="menu-icon">
+            <i class="mdi mdi-security"></i>
+          </span>
+          <span class="menu-title">Course Lesson</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="lesson">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href=" {{route('lesson.create')}}">
+              
+              Add Course Lesson</a></li>
+          
+           
+            {{-- <li class="nav-item"> <a class="nav-link" href=" {{route('lesson.index')}}">All Course Lesson</a></li> --}}
+        
+          </ul>
+        </div>
+      </li>
 
 
 

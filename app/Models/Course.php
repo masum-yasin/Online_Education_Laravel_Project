@@ -12,7 +12,7 @@ class Course extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'course_name','course_fee','course_category_id','course_duration','description'
+        'course_name','course_fee','course_category_id','course_duration','description','image'
     ];
     public function category(): BelongsTo
     {

@@ -3,9 +3,10 @@
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
+      <a href="{{route('lesson.create')}}" class="btn btn-sm btn-success mb-3 p-2" style="float: right;">Add Course Details</a>
      <div class="page-header">
 
-        <a href="{{route('course.create')}}" class="btn btn-sm btn-success mb-3 p-2" style="float: right;">Add Course Details</a>
+       
         <h3 class="page-title"> Add New Course Detail</h3>
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">

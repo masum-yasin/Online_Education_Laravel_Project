@@ -17,8 +17,8 @@ return new class extends Migration
             $table->decimal('course_fee', 10, 2);
             $table->tinyInteger('course_category_id');
             $table->string('course_duration',50);
-            $table->string('image')->nullable();
-            $table->boolean('is_active')->default(0);
+            $table->string('image',80)->nullable();
+            $table->tinyInteger('status')->default('0');
             $table->string('description', 300);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
