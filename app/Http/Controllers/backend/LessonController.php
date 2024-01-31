@@ -14,7 +14,8 @@ class LessonController extends Controller
      */
     public function index()
     {
-        
+        $lessons = Lesson::get();
+        return view('backend.lesson.index',compact('lessons'));
     }
 
     /**
@@ -54,7 +55,7 @@ class LessonController extends Controller
      */
     public function show(string $id)
     {
-        //
+    
     }
 
     /**
@@ -62,7 +63,10 @@ class LessonController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $categories = CourseCategory::get();
+        $lessons = Lesson::find($id);
+        return view('backend.lesson.edit',compact('categories','lessons'));
+
     }
 
     /**
@@ -70,7 +74,21 @@ class LessonController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $lessons = Lesson::find($id);
+        $validate = $request->validate([
+            'lesson_name'=>'required|min:2',
+            'desc'=>'required|min:4',
+           
+        ]);
+        if($validate){
+            $data = [
+                'lesson_name'=>$request->lesson_name,
+                'description'=>$request->desc,
+                'course_categories_id'=>$request->course_category,
+            ];
+       $lessons->update($data);
+       return redirect()->route('lesson.index')->with('msg','Lesson Update Successfully');
+        }
     }
 
     /**
@@ -78,6 +96,8 @@ class LessonController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $lesson = Lesson::find($id);
+        if($lesson->delete());
+        return redirect()->route('lesson.index')->with('msg','Lesson Delete Successfully');
     }
 }

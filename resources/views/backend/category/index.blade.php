@@ -3,10 +3,12 @@
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
+      
        <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
+              <a href="{{route('category.create')}}" class="btn btn-sm btn-success mb-3" style="float: right">Course Category Add</a>
               <h4 class="card-title">Hoverable Table</h4>
               <p class="card-description"> Add class <code>.table-hover</code>
               </p>

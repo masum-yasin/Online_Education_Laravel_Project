@@ -3,6 +3,7 @@
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
+      <a href="{{route('category.index')}}" class="btn btn-sm btn-success mb-3" style="float: right">ALL Course Category</a>
       <div class="page-header">
         <h3 class="page-title"> Add New Course </h3>
         <nav aria-label="breadcrumb">

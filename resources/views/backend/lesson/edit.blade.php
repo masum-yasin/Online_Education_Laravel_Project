@@ -1,63 +1,74 @@
 @extends('backend.layouts.app')
-@section('title','all Course Here')
+@section('title','Student course Category')
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
-     
-       <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
+      <a href="{{route('lesson.index')}}" class="btn btn-sm btn-success mb-3" style="float: right">ALL Course Lesson</a>
+      <div class="page-header">
+        <h3 class="page-title">All Course Lesson</h3>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Forms</a></li>
+          
+          </ol>
+        </nav>
+      </div>
+      @if ($errors->any())
+      <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+      </div>
+          
+      @endif
+      @if (session('msg'))
+      <div class="alert alert-danger">
+        {{session('msg')}}
+      </div>
+          
+      @endif
+      <div class="row">
+        
+        <div class="col-12 grid-margin stretch-card">
+        
           <div class="card">
             <div class="card-body">
-              <a href="{{route('lesson.create')}}" class="btn btn-sm btn-success mb-3" style="float: right">Add Course Detail</a>
-              <h4 class="card-title">Hoverable Table</h4>
-              <p class="card-description"> Add class <code>.table-hover</code>
-              </p>
-              <div class="table-responsive">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>#ID</th>
-                      <th>Course Name</th>
-                      {{-- <th>image</th> --}}
-                      <th>Course Fee</th>
-                      <th>Course Category</th>
-                      <th>Course Duration</th>
-                      <th>Active</th>
-                      <th>Description</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @foreach ($courses as $course)
-                      <tr>
-                      <td>{{$course['id']}}</td>
-                      <td>{{$course['course_name']}}</td>
-                      {{-- <td><img src="{{asset('uploads/'.$course->image)}}" alt="" style="width:50px" height="50px"></td> --}}
-                      <td>{{$course['course_fee']}}</td>
-                      <td>{{$course->category->name}}</td>
-                      <td>{{$course['course_duration']}}</td>
-                      <td>{{$course->status== 1 ? 'Active' :'Inactive'}}</td>
-                      <td>{{$course['description']}}</td>
-                      <td>
-                        <a href="course/delete/{{$course['id']}}"><i class="btn btn-danger">Delete</i></a>
-                          <a href="course/edit/{{$course['id']}}"><i class="btn btn-warning">Edit</i></a>
-                      </td>
-                      </tr>
+             <form class="forms-sample" method="post" action="{{route('lesson.update',$lessons->id)}}" enctype="multipart/form-data">
+              @csrf
+              <input type="hidden" name="_method" value="PATCH">
+                <div class="form-group">
+                  <label for="exampleInputName1">Lesson Name</label>
+                  <input type="text" class="form-control" id="exampleInputName1" placeholder="Course Lesson" name="lesson_name" value="{{old('lesson',$lessons->lesson_name)}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Course Category</label>
+                    <select name="course_category" id="">
+                      <option value="selected">Course Selected</option>
+                      @foreach ($categories as $category)
+                      <option value="{{$category->id}}" @if ($category->id==$lessons->course_categories_id) selected
+                        @endif>{{$category->name}}</option>
                       @endforeach
                    
-                  </tbody>
-                </table>
-              </div>
+
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputName1">Lesson Description</label>
+                    <textarea name="desc" id="" cols="60" rows="6">{{$lessons->description ? $lessons->description:old('desc')}}</textarea>
+                  </div>
+                <button type="submit" class="btn btn-primary mr-2">UPDATE</button>
+                <button class="btn btn-dark">Cancel</button>
+              </form>
             </div>
           </div>
         </div>
-       
-       
-      
         
+      
+      
       </div>
     </div>
-    
-    <!-- partial -->
+   
   </div>
 @endsection

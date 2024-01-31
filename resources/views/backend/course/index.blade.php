@@ -18,7 +18,7 @@
                     <tr>
                       <th>#ID</th>
                       <th>Course Name</th>
-                      {{-- <th>image</th> --}}
+                      <th>image</th>
                       <th>Course Fee</th>
                       <th>Course Category</th>
                       <th>Course Duration</th>
@@ -32,7 +32,7 @@
                       <tr>
                       <td>{{$course['id']}}</td>
                       <td>{{$course['course_name']}}</td>
-                      {{-- <td><img src="{{asset('uploads/'.$course->image)}}" alt="" style="width:50px" height="50px"></td> --}}
+                      <td><img src="{{asset('uploads/'.$course->image)}}" alt="" style="width:100px"></td>
                       <td>{{$course['course_fee']}}</td>
                       <td>{{$course->category->name}}</td>
                       <td>{{$course['course_duration']}}</td>

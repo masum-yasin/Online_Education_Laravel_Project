@@ -1,70 +1,68 @@
 @extends('backend.layouts.app')
-@section('title','New Course Add')
+@section('title','all Course Here')
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
-      <a href="{{route('lesson.create')}}" class="btn btn-sm btn-success mb-3 p-2" style="float: right;">Add Course Details</a>
-     <div class="page-header">
-
-       
-        <h3 class="page-title"> Add New Course Detail</h3>
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-          
-          
-          </ol>
-        </nav>
-      </div>
-      <div class="row">
-        
-        <div class="col-12 grid-margin stretch-card">
+     
+       <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              
-             
-              <form class="forms-sample" method="post" action="{{route('course.update',['id'=>$course['id']])}}" >
-                @csrf
-                <div class="form-group">
-                  <label for="exampleInputName1">Course Name</label>
-                  <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="course_name" value="{{old('course_name')? old('course_name'):$course['course_name']}}">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputName1">Course Fee</label>
-                    <input type="text" class="form-control" id="exampleInputName2" placeholder="Course Fee" name="course_fee"value="{{old('course_fee')? old('course_fee'):$course['course_fee']}}">
-                  </div>
-                
-                <div class="form-group">
-                    <label for="exampleInputName1">Course Category ID</label>
-                    <select name="course_category" id="exampleInputName3" class="form-control">
-                            <option value="selected">Course Selected</option>
-                            @foreach ($categories as $category)
-                              <option value="{{$category->id}}">{{$category->name}}</option>
-                            @endforeach
-                    </select>
+              <a href="{{route('lesson.create')}}" class="btn btn-sm btn-success mb-3" style="float: right">Add Course Lesson</a>
+              <h4 class="card-title">Hoverable Table</h4>
+              <p class="card-description"> Add class <code>.table-hover</code>
+              </p>
+              @if (session('msg'))
+              <div class="alert alert-danger">
+                {{session('msg')}};
+              </div>
                   
-                  </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail3">Course Duration</label>
-                  <input type="text" class="form-control" id="exampleInputEmail4" placeholder="Course Duration" name="course_duration"value="{{old('course_duration')? old('course_duration'):$course['course_duration']}}" >
-                </div>
-               <div class="form-group">
-                  <label for="exampleTextarea1">Description</label>
-                  <textarea class="form-control" id="exampleTextarea7" name="desc" rows="4"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                <button class="btn btn-dark">Cancel</button>
-              </form>
+              @endif
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>#ID</th>
+                      <th>Lesson Name</th>
+                      <th>Course Category</th>
+                      <th>Description</th>
+                      <th>status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach ($lessons as $lesson)
+                      <tr>
+                      <td>{{$lesson['id']}}</td>
+                      <td>{{$lesson['lesson_name']}}</td>
+                      <td>{{$lesson->lesson->name}}</td>
+                      <td>{{$lesson['description']}}</td>
+                      <td>{{$lesson->status== 1 ? 'Active' :'Inactive'}}</td>
+                      
+                      <td class="d-flex justify-content-lg-center g-2"> 
+                        <a href="{{route('lesson.edit',$lesson->id)}}"><i class="btn btn-success p-3">Edit</i></a>
+                          <form action="{{route('lesson.destroy',$lesson->id)}}" method="post">
+                            @csrf
+                            <input type="hidden" name="_method" value="DELETE">
+                           <button type="submit" class="btn btn-sm btn-danger p-3">DELETE</button>
+                          </form>
+                      </td>
+                      </tr>
+                      @endforeach
+                   
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
+       
+       
+      
         
-      
-      
       </div>
     </div>
-    <!-- content-wrapper ends -->
-    <!-- partial:../../partials/_footer.html -->
-   
+    
     <!-- partial -->
   </div>
 @endsection

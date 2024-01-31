@@ -5,7 +5,7 @@
     <div class="content-wrapper">
       <a href="{{route('lesson.index')}}" class="btn btn-sm btn-success mb-3" style="float: right">ALL Course Lesson</a>
       <div class="page-header">
-        <h3 class="page-title">Student Course Category</h3>
+        <h3 class="page-title">All Course Lesson</h3>
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Forms</a></li>
@@ -35,7 +35,7 @@
         
           <div class="card">
             <div class="card-body">
-             <form class="forms-sample" method="post" action="{{route('lesson.store')}}">
+             <form class="forms-sample" method="post" action="{{route('lesson.store')}}" enctype="multipart/form-data">
               @csrf
                 <div class="form-group">
                   <label for="exampleInputName1">Lesson Name</label>

@@ -29,7 +29,7 @@
           <div class="card">
            
             <div class="card-body">
-              <form class="forms-sample" method="post" action="{{route('course.store')}}">
+              <form class="forms-sample" method="post" action="{{route('course.store')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                   <label for="exampleInputName1">Course Name</label>

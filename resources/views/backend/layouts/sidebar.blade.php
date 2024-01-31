@@ -141,7 +141,7 @@
               Add Course Lesson</a></li>
           
            
-            {{-- <li class="nav-item"> <a class="nav-link" href=" {{route('lesson.index')}}">All Course Lesson</a></li> --}}
+            <li class="nav-item"> <a class="nav-link" href=" {{route('lesson.index')}}">All Course Lesson</a></li>
         
           </ul>
         </div>
