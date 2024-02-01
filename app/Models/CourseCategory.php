@@ -24,4 +24,8 @@ class CourseCategory extends Model
     {
         return $this->hasMany(Lesson::class);
     }
+    public function topic(): HasMany
+    {
+        return $this->hasMany(Topic::class);
+    }
 }

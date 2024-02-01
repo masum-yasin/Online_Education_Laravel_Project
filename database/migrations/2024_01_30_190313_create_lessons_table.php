@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
-            $table->string('lesson_name');
+            $table->string('lesson_number');
             $table->tinyInteger('course_categories_id');
             $table->string('description');
             $table->tinyInteger('status')->default('0');

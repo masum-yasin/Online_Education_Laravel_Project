@@ -1,4 +1,4 @@
-{{-- @extends('backend.layouts.app')
+@extends('backend.layouts.app')
 @section('title','all Course Here')
 @section('content')
 <div class="main-panel">
@@ -31,17 +31,17 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($lessons as $lesson)
+                    @foreach ($topics as $topic)
                       <tr>
-                      <td>{{$lesson['id']}}</td>
-                      <td>{{$lesson['lesson_name']}}</td>
-                      <td>{{$lesson->lesson->name}}</td>
-                      <td>{{$lesson['description']}}</td>
-                      <td>{{$lesson->status== 1 ? 'Active' :'Inactive'}}</td>
+                      <td>{{$topic['id']}}</td>
+                      <td>{{$topic['topic_title']}}</td>
+                      {{-- <td>{{$topic->lesson->name}}</td> --}}
+                      <td>{{$topic['description']}}</td>
+                      <td>{{$topic->status== 1 ? 'Active' :'Inactive'}}</td>
                       
                       <td class="d-flex justify-content-lg-center g-2"> 
-                        <a href="{{route('lesson.edit',$lesson->id)}}"><i class="btn btn-success p-3">Edit</i></a>
-                          <form action="{{route('lesson.destroy',$lesson->id)}}" method="post">
+                        <a href="{{route('lesson.edit',$topic->id)}}"><i class="btn btn-success p-3">Edit</i></a>
+                          <form action="{{route('topic.destroy',$topic->id)}}" method="post">
                             @csrf
                             <input type="hidden" name="_method" value="DELETE">
                            <button type="submit" class="btn btn-sm btn-danger p-3">DELETE</button>
@@ -65,4 +65,4 @@
     
     <!-- partial -->
   </div>
-@endsection --}}
+@endsection

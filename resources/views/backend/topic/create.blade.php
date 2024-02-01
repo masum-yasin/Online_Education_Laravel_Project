@@ -34,12 +34,13 @@
         
           <div class="card">
             <div class="card-body">
-             <form class="forms-sample" method="post" action="{{route('lesson.store')}}" enctype="multipart/form-data">
+             <form class="forms-sample" method="post" action="{{route('topic.store')}}">
               @csrf
                 <div class="form-group">
                   <label for="exampleInputName1">topic Name</label>
-                  <input type="text" class="form-control" id="exampleInputName1" placeholder="Course Lesson" name="lesson_name" value="{{old('lesson')}}">
+                  <input type="text" class="form-control" id="exampleInputName1" placeholder="Course Topic Name" name="title" value="{{old("title")}}">
                 </div>
+               
                 <div class="form-group">
                     <label for="exampleInputName1">Course Category</label>
                     <select name="course_category" id="">
@@ -47,13 +48,20 @@
                       @foreach ($categories as $category)
                       <option value="{{$category->id}}">{{$category->name}}</option>
                       @endforeach
-                   
-
-                    </select>
+                </select>
                   </div>
-                  <div class="form-group">
+                 <div class="form-group">
                     <label for="exampleInputName1">Lesson Description</label>
                     <textarea name="desc" id="" cols="60" rows="6"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputName1">Lesson Number</label>
+                    <select name="lesson" id="">
+                      <option value="selected">Course Selected</option>
+                      @foreach ($lessons as $lesson)
+                      <option value="{{$lesson->id}}">{{$lesson->lesson_number}}</option>
+                      @endforeach
+                   </select>
                   </div>
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <button class="btn btn-dark">Cancel</button>

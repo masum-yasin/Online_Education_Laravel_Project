@@ -38,8 +38,8 @@
              <form class="forms-sample" method="post" action="{{route('lesson.store')}}" enctype="multipart/form-data">
               @csrf
                 <div class="form-group">
-                  <label for="exampleInputName1">Lesson Name</label>
-                  <input type="text" class="form-control" id="exampleInputName1" placeholder="Course Lesson" name="lesson_name" value="{{old('lesson')}}">
+                  <label for="exampleInputName1">Lesson Number</label>
+                  <input type="text" class="form-control" id="exampleInputName1" placeholder="Course Lesson" name="lesson_number" value="{{old('lesson_number')}}">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Course Category</label>

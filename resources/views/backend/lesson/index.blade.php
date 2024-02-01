@@ -23,7 +23,7 @@
                   <thead>
                     <tr>
                       <th>#ID</th>
-                      <th>Lesson Name</th>
+                      <th>Lesson Number</th>
                       <th>Course Category</th>
                       <th>Description</th>
                       <th>status</th>
@@ -34,7 +34,7 @@
                     @foreach ($lessons as $lesson)
                       <tr>
                       <td>{{$lesson['id']}}</td>
-                      <td>{{$lesson['lesson_name']}}</td>
+                      <td>{{$lesson['lesson_number']}}</td>
                       <td>{{$lesson->lesson->name}}</td>
                       <td>{{$lesson['description']}}</td>
                       <td>{{$lesson->status== 1 ? 'Active' :'Inactive'}}</td>

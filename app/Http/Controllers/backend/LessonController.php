@@ -33,13 +33,13 @@ class LessonController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'lesson_name'=>'required|min:2',
+            'lesson_number'=>'required',
             'desc'=>'required|min:4',
            
         ]);
         if($validate){
             $data = [
-                'lesson_name'=>$request->lesson_name,
+                'lesson_number'=>$request->lesson_number,
                 'description'=>$request->desc,
                 'course_categories_id'=>$request->course_category,
             ];
@@ -76,13 +76,13 @@ class LessonController extends Controller
     {
         $lessons = Lesson::find($id);
         $validate = $request->validate([
-            'lesson_name'=>'required|min:2',
+            'lesson_number'=>'required',
             'desc'=>'required|min:4',
            
         ]);
         if($validate){
             $data = [
-                'lesson_name'=>$request->lesson_name,
+                'lesson_number'=>$request->lesson_number,
                 'description'=>$request->desc,
                 'course_categories_id'=>$request->course_category,
             ];
