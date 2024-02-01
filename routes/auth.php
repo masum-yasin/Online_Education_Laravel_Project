@@ -14,6 +14,7 @@ use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\LessonController;
 use App\Http\Controllers\backend\SCategoryController;
 use App\Http\Controllers\backend\SCourseController;
+use App\Http\Controllers\backend\TopicController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -96,6 +97,7 @@ Route::middleware('auth')->group(function () {
 
                 // resource Routing Start//
                 Route::resource('lesson',LessonController::class);
+                Route::resource('topic',TopicController::class);
 
                 
 });

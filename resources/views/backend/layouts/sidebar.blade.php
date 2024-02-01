@@ -137,13 +137,26 @@
         <div class="collapse" id="lesson">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href=" {{route('lesson.create')}}">
-              
-              Add Course Lesson</a></li>
-          
-           
-            <li class="nav-item"> <a class="nav-link" href=" {{route('lesson.index')}}">All Course Lesson</a></li>
-        
+            Add Course Lesson</a></li>
+          <li class="nav-item"> <a class="nav-link" href=" {{route('lesson.index')}}">All Course Lesson</a></li>
           </ul>
+        </div>
+      </li>
+      {{-- route for topic --}}
+      <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#topic" aria-expanded="false" aria-controls="topic">
+          <span class="menu-icon">
+            <i class="mdi mdi-security"></i>
+          </span>
+          <span class="menu-title">Course Topic</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="topic">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href=" {{route('topic.create')}}">
+              Add Course Topic</a></li>
+          <li class="nav-item"> <a class="nav-link" href=" {{route('topic.index')}}">All Course Topic</a></li>
+        </ul>
         </div>
       </li>
 
@@ -152,14 +165,7 @@
       
       
      
-      {{-- <li class="nav-item menu-items">
-        <a class="nav-link" href="pages/forms/basic_elements.html">
-          <span class="menu-icon">
-            <i class="mdi mdi-playlist-play"></i>
-          </span>
-          <span class="menu-title">Form Elements</span>
-        </a>
-      </li> --}}
+      
      
       
      
