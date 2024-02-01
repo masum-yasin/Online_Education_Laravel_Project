@@ -18,6 +18,6 @@ class Topic extends Model
     }
     public function lesson(): BelongsTo
     {
-        return $this->belongsTo(CourseCategory::class, 'course_categories_id');
+        return $this->belongsTo(Lesson::class, 'course_categories_id');
     }
 }
