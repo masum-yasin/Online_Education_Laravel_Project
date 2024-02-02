@@ -35,7 +35,7 @@
                       <tr>
                       <td>{{$lesson['id']}}</td>
                       <td>{{$lesson['lesson_number']}}</td>
-                      <td>{{$lesson->lesson->name}}</td>
+                      <td>{{$lesson->category->name}}</td>
                       <td>{{$lesson['description']}}</td>
                       <td>{{$lesson->status== 1 ? 'Active' :'Inactive'}}</td>
                       

@@ -21,7 +21,7 @@ class Topic extends Model
     }
     public function lesson(): BelongsTo
     {
-        return $this->belongsTo(Lesson::class, 'lessons_id');
+        return $this->belongsTo(Lesson::class,'lessons_id');
     }
     public function instructor(): HasMany
     {

@@ -17,7 +17,7 @@ class Lesson extends Model
     protected $fillable = [
         'lesson_name','description','course_categories_id'
     ];
-    public function lesson(): BelongsTo
+    public function category(): BelongsTo
     {
         return $this->belongsTo(CourseCategory::class, 'course_categories_id');
     }

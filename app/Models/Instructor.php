@@ -16,14 +16,14 @@ class Instructor extends Model
     ];
     public function category(): BelongsTo
     {
-        return $this->belongsTo(CourseCategory::class, 'course_categories_id');
+        return $this->belongsTo(CourseCategory::class,'course_categories_id');
     }
     public function lesson(): BelongsTo
     {
-        return $this->belongsTo(Lesson::class, 'lessons_id');
+        return $this->belongsTo(Lesson::class,'lessons_id');
     }
     public function topic(): BelongsTo
     {
-        return $this->belongsTo(Topic::class, 'topics_id');
+        return $this->belongsTo(Topic::class,'topics_id');
     }
 }
