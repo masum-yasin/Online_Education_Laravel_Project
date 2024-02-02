@@ -11,10 +11,12 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CourseController;
+use App\Http\Controllers\backend\InstructorController;
 use App\Http\Controllers\backend\LessonController;
 use App\Http\Controllers\backend\SCategoryController;
 use App\Http\Controllers\backend\SCourseController;
 use App\Http\Controllers\backend\TopicController;
+use App\Models\Instructor;
 use Illuminate\Support\Facades\Route;
 
 
@@ -98,6 +100,5 @@ Route::middleware('auth')->group(function () {
                 // resource Routing Start//
                 Route::resource('lesson',LessonController::class);
                 Route::resource('topic',TopicController::class);
-
-                
-});
+                Route::resource('instructor',InstructorController::class);
+            });

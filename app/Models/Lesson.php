@@ -25,4 +25,8 @@ class Lesson extends Model
     {
         return $this->hasMany(Topic::class);
     }
+    public function instructor(): HasMany
+    {
+        return $this->hasMany(Instructor::class);
+    }
 }

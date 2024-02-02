@@ -8,7 +8,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <a href="{{route('topic.create')}}" class="btn btn-sm btn-success mb-3" style="float: right">Add Course Lesson</a>
+              <a href="{{route('instructor.create')}}" class="btn btn-sm btn-success mb-3" style="float: right">Add Course Lesson</a>
               <h4 class="card-title">Hoverable Table</h4>
               <p class="card-description"> Add class <code>.table-hover</code>
               </p>
@@ -23,27 +23,39 @@
                   <thead>
                     <tr>
                       <th>#ID</th>
-                      <th>Topic Title</th>
-                      <th>Course Category</th>
-                      <th> course Lesson</th>
-                      <th>Description</th>
+                      <th>Instructor Name</th>
+                      <th>Email</th>
+                      <th>Phone Number</th>
+                      <th>Photo</th>
+                      <th>course_category</th>
+                      <th>lesson number</th>
+                      <th>Topic</th>
+                      <th>title</th>
+                      <th>description</th>
                       <th>status</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($topics as $topic)
+                    @foreach ($instructors as $instructor)
                       <tr>
-                      <td>{{$topic['id']}}</td>
-                      <td>{{$topic['topic_title']}}</td>
-                      <td>{{$topic->category->name}}</td>
-                      <td>{{$topic->lesson->lesson_number}}</td>
-                      <td>{{$topic['description']}}</td>
-                      <td>{{$topic->status== 1 ? 'Active' :'Inactive'}}</td>
+                      <td>{{$instructor['id']}}</td>
+                      <td>{{$instructor['instructor_name']}}</td>
+                      <td>{{$instructor['email']}}</td>
+                      <td>{{$instructor['phone']}}</td>
+                 
+                      <td><img src="{{asset('uploads/'.$instructor->photo)}}" alt="" style="width: 50px; height:50px"></td>
+                      <td>{{$instructor->category->name}}</td>
+                      <td>{{$instructor->lesson->lesson_number}}</td>
+                      <td>{{$instructor->topic->topic_title}}</td>
+                      <td>{{$instructor['title']}}</td>
+                      <td>{{$instructor['description']}}</td>
+                    
+                      <td>{{$instructor->status== 1 ? 'Active' :'Inactive'}}</td>
                       
                       <td class="d-flex justify-content-lg-center g-2"> 
-                        <a href="{{route('lesson.edit',$topic->id)}}"><i class="btn btn-success p-3">Edit</i></a>
-                          <form action="{{route('topic.destroy',$topic->id)}}" method="post">
+                        <a href="{{route('instructor.edit',$instructor->id)}}"><i class="btn btn-success p-3">Edit</i></a>
+                          <form action="{{route('instructor.destroy',$instructor->id)}}" method="post">
                             @csrf
                             <input type="hidden" name="_method" value="DELETE">
                            <button type="submit" class="btn btn-sm btn-danger p-3">DELETE</button>

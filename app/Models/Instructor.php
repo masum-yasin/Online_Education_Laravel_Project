@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
 
-class Topic extends Model
+class Instructor extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'topic_title','description','course_categories_id','lessons_id'
+        'instructor_name','email','phone','photo','course_categories_id','lessons_id','topics_id','title','description'
     ];
     public function category(): BelongsTo
     {
@@ -23,8 +22,8 @@ class Topic extends Model
     {
         return $this->belongsTo(Lesson::class, 'lessons_id');
     }
-    public function instructor(): HasMany
+    public function topic(): BelongsTo
     {
-        return $this->hasMany(Instructor::class);
+        return $this->belongsTo(Topic::class, 'topics_id');
     }
 }

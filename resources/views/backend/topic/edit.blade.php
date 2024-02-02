@@ -34,11 +34,12 @@
         
           <div class="card">
             <div class="card-body">
-             <form class="forms-sample" method="post" action="{{route('topic.store')}}">
+             <form class="forms-sample" method="post" action="{{route('topic.store',$topics->id)}}">
               @csrf
+              <input type="hidden" name="_method" value="PATCH">
                 <div class="form-group">
                   <label for="exampleInputName1">topic Name</label>
-                  <input type="text" class="form-control" id="exampleInputName1" placeholder="Course Topic Name" name="title" value="{{old("title",$topics->topic_title)}}">
+                  <input type="text" class="form-control" id="exampleInputName1" placeholder="Course Topic Name" name="title" value="{{old("title",$topics->title)}}">
                 </div>
                
                 <div class="form-group">
@@ -46,20 +47,20 @@
                     <select name="course_category" id="">
                       <option value="selected">Course Selected</option>
                       @foreach ($categories as $category)
-                      <option value="{{$category->id}}"  @selected(old('course_category',$topics->$course_categories_id == $category->id))>{{$category->name}}</option>
+                      <option value="{{$category->id}}" @selected(old('course_category',$topics->course_categories_id==$category->id))>{{$category->name}}</option>
                       @endforeach
                 </select>
                   </div>
                  <div class="form-group">
                     <label for="exampleInputName1">Lesson Description</label>
-                    <textarea name="desc" id="" cols="60" rows="6" {{old('desc',$topics->description)}}></textarea>
+                    <textarea name="desc" id="" cols="60" rows="6"></textarea>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputName1">Lesson Number</label>
                     <select name="lesson" id="">
                       <option value="selected">Course Selected</option>
                       @foreach ($lessons as $lesson)
-                      <option value="{{$lesson->id}}"  @selected(old('lesson',$topics->lessons_id == $lesson->id))>{{$lesson->lesson_number}}</option>
+                      <option value="{{$lesson->id}}" @selected(old('lesson',$topics->lessons_id==$lesson->id))>{{$lesson->lesson_number}}</option>
                       @endforeach
                    </select>
                   </div>

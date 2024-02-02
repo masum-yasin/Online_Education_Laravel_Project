@@ -159,6 +159,23 @@
         </ul>
         </div>
       </li>
+      {{-- Course Instructor --}}
+      <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#instructor" aria-expanded="false" aria-controls="instructor">
+          <span class="menu-icon">
+            <i class="mdi mdi-security"></i>
+          </span>
+          <span class="menu-title">Course Instructor</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="instructor">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href=" {{route('instructor.create')}}">
+              Add Course Instructor</a></li>
+          <li class="nav-item"> <a class="nav-link" href=" {{route('instructor.index')}}">All Course Instructor</a></li>
+        </ul>
+        </div>
+      </li>
 
 
 

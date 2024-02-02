@@ -11,12 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('topics', function (Blueprint $table) {
+        Schema::create('instructors', function (Blueprint $table) {
             $table->id();
-            $table->string('topic_title')->nullable();
+            $table->string('instructor_name');
+            $table->string('email');
+            $table->integer('phone');
+            $table->string('photo')->nullable();
             $table->tinyInteger('course_categories_id');
             $table->tinyInteger('lessons_id');
-            $table->string('description');
+            $table->tinyInteger('topics_id');
+            $table->string('title');
+            $table->text('description')->nullable();
             $table->tinyInteger('status')->default('0');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
@@ -28,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('topics');
+        Schema::dropIfExists('instructors');
     }
 };
