@@ -12,15 +12,17 @@ class EditorController extends Controller
     }
     public function store(Request $request){
         $euser = $request->all();
+        $type = 'editor';
         // dd($euser);
         if(Auth::guard('editor')->attempt(['email'=>$euser['email'],'password'=>$euser['password']])){
-            return redirect()->route('editor.edashboard');
+            return redirect()->route('editor.edashboard',$type);
         }
         else{
             return view('editor.login');
         }
     }
-    public function edashboard(){
-        return view('editor.edashboard');
+    public function edashboard($type){
+        $user = Auth::guard($type)->user();
+        return view('editor.edashboard',compact('user'));
     }
 }

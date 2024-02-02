@@ -17,10 +17,12 @@ class Teacher extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $guard = 'teacher';
     protected $fillable = [
         'name',
         'email',
         'password',
+        'status'
     ];
 
     /**

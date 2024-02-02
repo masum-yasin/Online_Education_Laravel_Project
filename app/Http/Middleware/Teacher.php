@@ -4,7 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+
 
 class Teacher
 {
@@ -15,6 +17,9 @@ class Teacher
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if(!Auth::guard('teacher')->check()){
+            return redirect()->route('.teacher.login')->with('error','Login first');
+        }
         return $next($request);
     }
 }

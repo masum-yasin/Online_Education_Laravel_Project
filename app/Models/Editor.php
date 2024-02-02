@@ -16,10 +16,12 @@ class Editor extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $guard = 'editor';
     protected $fillable = [
         'name',
         'email',
         'password',
+        'status'
     ];
 
     /**

@@ -31,14 +31,14 @@ Route::middleware('auth')->group(function () {
 });
 
 // Teacher Guide student login system//
-Route::get('teacher/login',[TeacherController::class,'login']);
+Route::get('teacher/login',[TeacherController::class,'login'])->name('teacher.login');
 Route::post('teacher/login',[TeacherController::class,'store'])->name('TeacherLogin');
-Route::get('teacher/tdashboard',[TeacherController::class,'tdashboard'])->name('teacher.tdashboard');
+Route::get('teacher/tdashboard/{type}',[TeacherController::class,'tdashboard'])->name('teacher.tdashboard')->middleware('teacher');
 
 // Edit dashboard By Editor//
-Route::get('editor/login',[EditorController::class , 'login']);
+Route::get('editor/login',[EditorController::class , 'login'])->name('editor.login');
 Route::post('editor/login',[EditorController::class,'store'])->name('EditorLogin');
-Route::get('editor/edashboard',[EditorController::class,'edashboard'])->name('editor.edashboard');
+Route::get('editor/edashboard/{type}',[EditorController::class,'edashboard'])->name('editor.edashboard')->middleware('editor');
 
 
 require __DIR__.'/auth.php';
