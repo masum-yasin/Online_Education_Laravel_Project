@@ -16,11 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('backend.dashboard');
-// });
-
 Route::get('/', function () {
+    return view('frontend.home');
+})->name('home');
+Route::get('about',function(){
+    return view('frontend.about');
+})->name('about.us');
+
+Route::get('/dashboard', function () {
     return view('backend.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -30,13 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Teacher Guide student login system//
-Route::get('teacher/login',[TeacherController::class,'login'])->name('teacher.login');
-Route::post('teacher/login',[TeacherController::class,'store'])->name('TeacherLogin');
-Route::get('teacher/tdashboard/{type}',[TeacherController::class,'tdashboard'])->name('teacher.tdashboard')->middleware('teacher');
-
 // Edit dashboard By Editor//
-Route::get('editor/login',[EditorController::class , 'login'])->name('editor.login');
+Route::get('editor/login',[EditorController::class ,'login'])->name('editor.login');
 Route::post('editor/login',[EditorController::class,'store'])->name('EditorLogin');
 Route::get('editor/edashboard/{type}',[EditorController::class,'edashboard'])->name('editor.edashboard')->middleware('editor');
 

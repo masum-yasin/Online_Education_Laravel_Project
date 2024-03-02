@@ -8,12 +8,39 @@ use App\Models\Instructor;
 use App\Models\Lesson;
 use App\Models\Topic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class InstructorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    public function login(){
+        return view('backend.instructor.login');
+       }
+
+       public function LoginStore(Request $request){
+
+
+            $user = $request->all();
+         
+            // dd($user);
+            if(Auth::guard('instructor')->attempt(['email'=>$user['email'],'password'=>$user['password']])){
+                return redirect()->route('instructor.insdashboard');
+            }
+            else{
+                return redirect()->back();
+            }
+           }
+           public function tdashboard(){
+           
+            return view('instructor.insdashboard');
+           
+       }
+
+
+
     public function index()
     {
         $instructors = Instructor::get();
@@ -40,7 +67,7 @@ class InstructorController extends Controller
         $validate = $request->validate([
         'photo'=>'mimes:jpg,jpeg,png',
         'name'=>'required|min:4|max:100',
-        'email'=>'required|min:4',
+        'email'=>'required|email',
         'phone'=>'required|numeric',
         'desc'=>'required|min:4|max:500',
         'title'=>'required|min:4|max:150',
@@ -57,6 +84,7 @@ class InstructorController extends Controller
             'photo'=> $filename,
             'instructor_name' =>$request->name,
             'email' =>$request->email,
+            'password' =>Hash::make($request->password),
             'phone' =>$request->phone,
             'course_categories_id' =>$request->course_category,
             'lessons_id' =>$request->lesson,

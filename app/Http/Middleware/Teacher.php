@@ -17,9 +17,7 @@ class Teacher
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!Auth::guard('teacher')->check()){
-            return redirect()->route('.teacher.login')->with('error','Login first');
-        }
+        
         return $next($request);
     }
 }

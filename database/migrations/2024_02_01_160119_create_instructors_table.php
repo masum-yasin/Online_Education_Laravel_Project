@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('instructors', function (Blueprint $table) {
             $table->id();
             $table->string('instructor_name');
-            $table->string('email');
+            $table->string('email')->unique();
+            $table->timestamp('email_varified_at')->nullable();
+            $table->string('password');
             $table->integer('phone');
             $table->string('photo')->nullable();
             $table->tinyInteger('course_categories_id');

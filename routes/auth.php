@@ -72,6 +72,8 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 
+            });
+
 
             // Course Route Start//
                 Route::get('course',[CourseController::class,'index'])->name('course.index');
@@ -101,4 +103,12 @@ Route::middleware('auth')->group(function () {
                 Route::resource('lesson',LessonController::class);
                 Route::resource('topic',TopicController::class);
                 Route::resource('instructor',InstructorController::class);
-            });
+
+                
+// Instructor Guide student login system//
+Route::get('instructorLoginForm', [InstructorController::class, 'login'])->name('instructorLoginForm');
+Route::post('instructor/login',[InstructorController::class,'LoginStore'])->name('InstructorLogin');
+Route::get('instructor/insdashboard/',[InstructorController::class,'Insdashboard'])->name('instructor.insdashboard')->middleware('instructor');
+
+
+          

@@ -40,17 +40,22 @@
                   <label for="exampleInputName1">Instructor Name</label>
                   <input type="text" class="form-control" id="exampleInputName1" placeholder="Instructor Name" name="name" value="{{old("name")}}">
                 </div>
+               
+                <div class="form-group">
+                  <label for="exampleInputName1">Instructor Email</label>
+                  <input type="email" class="form-control" id="exampleInputName1" placeholder="Instructor Email" name="email" value="{{old("email")}}">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputName1">Instructor Password</label>
+                  <input type="password" class="form-control" id="exampleInputName1" placeholder="Instructor Password" name="password" value="{{old("password")}}">
+                </div>
                 <div class="form-group">
                   <label for="exampleInputName1">Instructor Phone</label>
                   <input type="number" class="form-control" id="exampleInputName1" placeholder="Instructor Name" name="phone" value="{{old("phone")}}">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputName1">Instructor Email</label>
-                  <input type="email" class="form-control" id="exampleInputName1" placeholder="Instructor Name" name="email" value="{{old("email")}}">
-                </div>
-                <div class="form-group">
                   <label for="exampleInputName1">Instructor Photo</label>
-                  <input type="file" class="form-control" id="exampleInputName1" placeholder="Instructor Name" name="photo" value="{{old("photo")}}">
+                  <input type="file" class="form-control" id="exampleInputName1" placeholder="Instructor Photo" name="photo" value="{{old("photo")}}">
                 </div>
                
                 <div class="form-group">
@@ -77,7 +82,7 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputName1">Instructor Title</label>
-                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Instructor Name" name="title" value="{{old("title")}}">
+                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Instructor Title" name="title" value="{{old("title")}}">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputName1">Topic</label>

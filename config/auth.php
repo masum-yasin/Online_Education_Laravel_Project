@@ -40,9 +40,9 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'teacher' => [
+        'instructor' => [
             'driver' => 'session',
-            'provider' => 'teachers', //teachers table
+            'provider' => 'instructors', //instructors table
         ],
         'editor' => [
             'driver' => 'session',
@@ -72,9 +72,9 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'teachers' => [
+        'instructors' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Teacher::class,
+            'model' => App\Models\Instructor::class,
         ],
         'editors' => [
             'driver' => 'eloquent',
@@ -120,6 +120,12 @@ return [
             'throttle' => 60,
         ],
         'admins' => [
+            'provider' => 'users',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'instructors' => [
             'provider' => 'users',
             'table' => 'password_reset_tokens',
             'expire' => 60,
