@@ -36,7 +36,8 @@ Route::middleware('auth')->group(function () {
 // Edit dashboard By Editor//
 Route::get('editor/login',[EditorController::class ,'login'])->name('editor.login');
 Route::post('editor/login',[EditorController::class,'store'])->name('EditorLogin');
-Route::get('editor/edashboard/{type}',[EditorController::class,'edashboard'])->name('editor.edashboard')->middleware('editor');
+Route::post('editor/logout',[EditorController::class,'logout'])->name('editor.logout');
+Route::get('editor/edashboard',[EditorController::class,'edashboard'])->name('editor.edashboard')->middleware('editor');
 
 
 require __DIR__.'/auth.php';

@@ -105,10 +105,15 @@ Route::middleware('auth')->group(function () {
                 Route::resource('instructor',InstructorController::class);
 
                 
-// Instructor Guide student login system//
-Route::get('instructorLoginForm', [InstructorController::class, 'login'])->name('instructorLoginForm');
-Route::post('instructor/login',[InstructorController::class,'LoginStore'])->name('InstructorLogin');
-Route::get('instructor/insdashboard/',[InstructorController::class,'Insdashboard'])->name('instructor.insdashboard')->middleware('instructor');
+                // Instructor Guide student login system//
+                    Route::get('instructorLoginForm', [InstructorController::class, 'login'])->name('instructorLoginForm');
+                    Route::post('instructor/login',[InstructorController::class,'LoginStore'])->name('InstructorLogin');
+                    Route::post('instructor/logout',[InstructorController::class,'logout'])->name('inslogout');
+
+                    Route::get('insdashboard', [InstructorController::class, 'Insdashboard'])
+                    ->name('insdashboard')
+                    ->middleware('instructor');
+                    // Route::get('instructor/dashboard', [InstructorController::class, 'dashboard'])->name('dashboard.ins')->middleware('instructor');
 
 
           

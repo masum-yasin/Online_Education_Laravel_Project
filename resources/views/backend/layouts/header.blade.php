@@ -102,60 +102,26 @@
           </div>
         </li>
         <li class="nav-item dropdown border-left">
-          <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-            <i class="mdi mdi-bell"></i>
-            <span class="count bg-danger"></span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-            <h6 class="p-3 mb-0">Notifications</h6>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <div class="preview-icon bg-dark rounded-circle">
-                  <i class="mdi mdi-calendar text-success"></i>
-                </div>
-              </div>
-              <div class="preview-item-content">
-                <p class="preview-subject mb-1">Event today</p>
-                <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event today </p>
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <div class="preview-icon bg-dark rounded-circle">
-                  <i class="mdi mdi-settings text-danger"></i>
-                </div>
-              </div>
-              <div class="preview-item-content">
-                <p class="preview-subject mb-1">Settings</p>
-                <p class="text-muted ellipsis mb-0"> Update dashboard </p>
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <div class="preview-icon bg-dark rounded-circle">
-                  <i class="mdi mdi-link-variant text-warning"></i>
-                </div>
-              </div>
-              <div class="preview-item-content">
-                <p class="preview-subject mb-1">Launch Admin</p>
-                <p class="text-muted ellipsis mb-0"> New admin wow! </p>
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <p class="p-3 mb-0 text-center">See all notifications</p>
-          </div>
+         
+          <span>
+            @if(Auth::guard('instructor')->Check())
+            <a href="insdashboard" class="bg-success text-uppercase text-white inline-block">Instructor</a>
+            @elseif(Auth::guard('editor')->Check())
+            <a href="editor/edashboard" class="bg-success text-uppercase text-white inline-block">Editor</a>
+            @else
+            <a href="edashboard" class="bg-success text-uppercase text-white inline-block">Super Admin</a>
+            @endif
+          </span>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
             <div class="navbar-profile">
               <img class="img-xs rounded-circle" src="{{asset('assets/images/faces/face15.jpg')}}" alt="">
-              <p class="mb-0 d-none d-sm-block navbar-profile-name">{{$user->name ?? auth()->user()->name}}</p>
+            
               <i class="mdi mdi-menu-down d-none d-sm-block"></i>
             </div>
           </a>
+          
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
             <h6 class="p-3 mb-0">Profile</h6>
             <div class="dropdown-divider"></div>
@@ -170,6 +136,35 @@
               </div>
             </a>
             <div class="dropdown-divider"></div>
+            @if(Auth::guard('instructor')->Check())
+            <form  method="POST" action="{{ route('inslogout') }}" >
+              @csrf
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-dark rounded-circle">
+                    <i class="mdi mdi-logout text-danger"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <button class="preview-subject mb-1 btn btn-danger">Log out</button>
+                </div>
+              </a>
+             </form>
+             @elseif(Auth::guard('editor')->Check())
+             <form  method="POST" action="{{ route('editor.logout') }}" >
+              @csrf
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-dark rounded-circle">
+                    <i class="mdi mdi-logout text-danger"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <button class="preview-subject mb-1 btn btn-danger">Log out</button>
+                </div>
+              </a>
+             </form>
+            @else
            <form  method="POST" action="{{ route('logout') }}" >
             @csrf
             <a class="dropdown-item preview-item">
@@ -183,6 +178,7 @@
               </div>
             </a>
            </form>
+           @endif
             <div class="dropdown-divider"></div>
             <p class="p-3 mb-0 text-center">Advanced settings</p>
           </div>

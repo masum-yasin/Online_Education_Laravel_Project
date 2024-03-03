@@ -1,5 +1,5 @@
-@extends('backend.layouts.editorApp')
-@section('title','Online Education Course')
+@extends('backend.layouts.app')
+@section('title','Editor Dashboard')
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">

@@ -3,9 +3,9 @@
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
-      <a href="{{route('instructor.index')}}" class="btn btn-sm btn-success mb-3" style="float: right">ALL Course Lesson</a>
+      <a href="{{route('instructor.index')}}" class="btn btn-sm btn-success mb-3" style="float: right">ALL Instructor</a>
       <div class="page-header">
-        <h3 class="page-title">All Course Lesson</h3>
+        <h3 class="page-title">All Instructor</h3>
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Forms</a></li>

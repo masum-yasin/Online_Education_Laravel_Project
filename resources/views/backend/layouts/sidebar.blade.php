@@ -65,6 +65,113 @@
         </a>
       </li>
 {{-- Course Category --}}
+      @if(Auth::guard('instructor')->Check())
+      <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+          <span class="menu-icon">
+            <i class="mdi mdi-security"></i>
+          </span>
+          <span class="menu-title">Course Category</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="auth">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href=" {{route('category.create')}}">Add Course Category </a></li>
+  
+           
+            <li class="nav-item"> <a class="nav-link" href=" {{route('category.index')}}">All Course Category List</a></li>
+        
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#topic" aria-expanded="false" aria-controls="topic">
+          <span class="menu-icon">
+            <i class="mdi mdi-security"></i>
+          </span>
+          <span class="menu-title">Course Topic</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="topic">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href=" {{route('topic.create')}}">
+              Add Course Topic</a></li>
+          <li class="nav-item"> <a class="nav-link" href=" {{route('topic.index')}}">All Course Topic</a></li>
+        </ul>
+        </div>
+      </li>
+      <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#topic" aria-expanded="false" aria-controls="topic">
+          <span class="menu-icon">
+            <i class="mdi mdi-security"></i>
+          </span>
+          <span class="menu-title">Course Topic</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="topic">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href=" {{route('topic.create')}}">
+              Add Course Topic</a></li>
+          <li class="nav-item"> <a class="nav-link" href=" {{route('topic.index')}}">All Course Topic</a></li>
+        </ul>
+        </div>
+      </li>
+
+      @elseif(Auth::guard('editor')->Check())
+      <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+          <span class="menu-icon">
+            <i class="mdi mdi-security"></i>
+          </span>
+          <span class="menu-title">Course Category</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="auth">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href=" {{route('category.create')}}">Add Course Category </a></li>
+  
+           
+            <li class="nav-item"> <a class="nav-link" href=" {{route('category.index')}}">All Course Category List</a></li>
+        
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#topic" aria-expanded="false" aria-controls="topic">
+          <span class="menu-icon">
+            <i class="mdi mdi-security"></i>
+          </span>
+          <span class="menu-title">Course Topic</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="topic">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href=" {{route('topic.create')}}">
+              Add Course Topic</a></li>
+          <li class="nav-item"> <a class="nav-link" href=" {{route('topic.index')}}">All Course Topic</a></li>
+        </ul>
+        </div>
+      </li>
+      <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#topic" aria-expanded="false" aria-controls="topic">
+          <span class="menu-icon">
+            <i class="mdi mdi-security"></i>
+          </span>
+          <span class="menu-title">Course Topic</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="topic">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href=" {{route('topic.create')}}">
+              Add Course Topic</a></li>
+          <li class="nav-item"> <a class="nav-link" href=" {{route('topic.index')}}">All Course Topic</a></li>
+        </ul>
+        </div>
+      </li>
+{{-- ============================super admin================ --}}
+
+@else
+
       <li class="nav-item menu-items">
         <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
           <span class="menu-icon">
@@ -176,6 +283,7 @@
         </ul>
         </div>
       </li>
+      @endif
 
 
 

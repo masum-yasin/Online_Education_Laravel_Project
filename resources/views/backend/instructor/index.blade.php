@@ -8,7 +8,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <a href="{{route('instructor.create')}}" class="btn btn-sm btn-success mb-3" style="float: right">Add Course Lesson</a>
+              <a href="{{route('instructor.create')}}" class="btn btn-sm btn-success mb-3" style="float: right">Add Instructor</a>
               <h4 class="card-title">Hoverable Table</h4>
               <p class="card-description"> Add class <code>.table-hover</code>
               </p>
