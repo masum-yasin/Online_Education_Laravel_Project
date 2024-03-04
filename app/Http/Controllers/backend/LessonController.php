@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\CourseCategory;
+use App\Models\Instructor;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
 
@@ -23,8 +24,9 @@ class LessonController extends Controller
      */
     public function create()
     {
+        $instructors = Instructor::get();
         $categories = CourseCategory::get();
-        return view('backend.lesson.create',compact('categories'));
+        return view('backend.lesson.create',compact('categories','instructors'));
     }
 
     /**
@@ -42,6 +44,8 @@ class LessonController extends Controller
                 'lesson_number'=>$request->lesson_number,
                 'description'=>$request->desc,
                 'course_categories_id'=>$request->course_category,
+        
+          
             ];
          $model = new Lesson();
          if($model->insert($data)){

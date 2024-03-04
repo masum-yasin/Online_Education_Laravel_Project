@@ -72,6 +72,10 @@
                     <textarea name="desc" id="" cols="60" rows="6"></textarea>
                   </div>
                   <div class="form-group">
+                    <label for="exampleInputName1">Video</label>
+                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Course Video" name="video" value="{{old("video")}}">
+                  </div>
+                  <div class="form-group">
                     <label for="exampleInputName1">Lesson Number</label>
                     <select name="lesson" id="">
                       <option value="selected">Course Selected</option>

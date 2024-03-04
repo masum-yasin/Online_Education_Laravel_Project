@@ -52,6 +52,7 @@ class CourseController extends Controller
             'course_category_id'=>$request->course_category,
             'course_duration'=>$request->course_duration,
             'description'=>$request->desc,
+      
           ];
        }
       

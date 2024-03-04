@@ -31,6 +31,7 @@
                       <th>lesson number</th>
                       <th>Topic</th>
                       <th>title</th>
+                      <th>video</th>
                       <th>description</th>
                       <th>status</th>
                       <th>Action</th>
@@ -49,6 +50,7 @@
                       <td>{{$instructor->lesson->lesson_number}}</td>
                       <td>{{$instructor->topic->topic_title}}</td>
                       <td>{{$instructor['title']}}</td>
+                      <td>{{$instructor['video']}}</td>
                       <td>{{$instructor['description']}}</td>
                     
                       <td>{{$instructor->status== 1 ? 'Active' :'Inactive'}}</td>

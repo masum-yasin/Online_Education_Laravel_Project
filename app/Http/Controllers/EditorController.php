@@ -26,7 +26,7 @@ class EditorController extends Controller
         return view('editor.edashboard');
     }
     public function logout(){
-        Auth::guard('editor')->check();
+        Auth::guard('editor')->logout();
         return redirect()->route('editor.login');
     }
 }

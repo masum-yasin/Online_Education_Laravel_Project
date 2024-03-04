@@ -25,7 +25,7 @@
                       <th>#ID</th>
                       <th>Lesson Number</th>
                       <th>Course Category</th>
-                      <th>Description</th>
+                        <th>Description</th>
                       <th>status</th>
                       <th>Action</th>
                     </tr>
@@ -36,6 +36,7 @@
                       <td>{{$lesson['id']}}</td>
                       <td>{{$lesson['lesson_number']}}</td>
                       <td>{{$lesson->category->name}}</td>
+                    
                       <td>{{$lesson['description']}}</td>
                       <td>{{$lesson->status== 1 ? 'Active' :'Inactive'}}</td>
                       

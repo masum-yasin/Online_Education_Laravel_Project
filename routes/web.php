@@ -23,6 +23,10 @@ Route::get('about',function(){
     return view('frontend.about');
 })->name('about.us');
 
+Route::get('courses',function(){
+    return view('frontend.course');
+})->name('courses');
+
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

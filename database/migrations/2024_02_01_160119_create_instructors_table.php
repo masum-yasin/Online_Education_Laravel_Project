@@ -23,6 +23,7 @@ return new class extends Migration
             $table->tinyInteger('lessons_id');
             $table->tinyInteger('topics_id');
             $table->string('title');
+            $table->string('video');
             $table->text('description')->nullable();
             $table->tinyInteger('status')->default('0');
             $table->timestamp('created_at')->useCurrent();

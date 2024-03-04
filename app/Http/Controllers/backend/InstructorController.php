@@ -75,9 +75,7 @@ class InstructorController extends Controller
             'phone' => 'required|numeric',
             'desc' => 'required|min:4|max:500',
             'title' => 'required|min:4|max:150',
-            // 'course_categories_id' =>'required|min:4',
-            // 'lessons_id'=>'required|min:2',
-            // 'topics_id'=>'required|min:4',
+           
         ]);
 
         $filename = time() . "." . $request->photo->extension();
@@ -95,16 +93,9 @@ class InstructorController extends Controller
                 'topics_id' => $request->topic,
                 'descritption' => $request->desc,
                 'title' => $request->title,
+                'video' => $request->video,
 
-                //  'photo'=>$filename,
-                //  'instructor_name'=>$request->name,
-                //  'email'=>$request->email,
-                //  'phone'=>$request->phone,
-                //  'course_categories_id' =>$request->course_category,
-                //  'lessons_id'=>$request->lesson,
-                //  'topics_id'=>$request->topic,
-                //  'description'=>$request->desc,
-                //  'title'=>$request->title,
+               
 
             ];
         }
@@ -164,6 +155,8 @@ class InstructorController extends Controller
                 'topics_id' => $request->topic,
                 'description' => $request->desc,
                 'title' => $request->title,
+                'video' => $request->video,
+             
 
             ];
         }

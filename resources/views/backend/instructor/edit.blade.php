@@ -53,7 +53,11 @@
                   <label for="exampleInputName1">Instructor Photo</label>
                   <input type="file" class="form-control" id="exampleInputName1" placeholder="Instructor Name" name="photo" value="{{old("photo",$instructors->photo)}}">
                 </div>
-                <img src="{{asset('uploads/'.$instructors->photo)}}" alt="" style="width:50px; height:50px">
+                <div class="form-group">
+                  <label for="exampleInputName1">Video</label>
+                  <input type="text" class="form-control" id="exampleInputName1" placeholder="Instructor Name" name="video" value="{{old("video",$instructors->video)}}">
+                </div>
+               
                
                 <div class="form-group mt-4">
                     <label for="exampleInputName1">Course Category</label>
