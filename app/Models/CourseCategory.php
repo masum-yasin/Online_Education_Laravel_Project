@@ -32,4 +32,8 @@ class CourseCategory extends Model
     {
         return $this->hasMany(Instructor::class);
     }
+    public function schedule(): HasMany
+    {
+        return $this->hasMany(Schedule::class);
+    }
 }

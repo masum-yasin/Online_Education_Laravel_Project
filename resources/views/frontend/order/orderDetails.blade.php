@@ -123,7 +123,13 @@
                         <li>
                             <a class="justify-content-between d-flex" href="#">
                                 <p>Schedule </p>
-                                <span>2.00 pm to 4.00 pm</span>
+                                <span class="text-danger">Start Time: {{$schedule->start_time}}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Schedule </p>
+                                <span class="text-danger">End Time: {{$schedule->ending_time}}</span>
                             </a>
                         </li>
 

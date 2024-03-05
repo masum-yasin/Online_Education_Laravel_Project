@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\CourseCategory;
+use App\Models\Schedule;
 use Illuminate\Http\Request;
 
 
@@ -25,8 +26,9 @@ class CourseController extends Controller
      */
     public function create()
     {
+     
         $data['categories']=CourseCategory::all();
-        return view('backend.course.create',$data);
+        return view('backend.course.create',compact('data'));
     }
 
     /**

@@ -5,7 +5,7 @@
     <div class="content-wrapper">
       <a href="{{route('schedule.index')}}" class="btn btn-sm btn-success mb-3" style="float: right">ALL Course Schedule</a>
       <div class="page-header">
-        <h3 class="page-title">All Course Lesson</h3>
+        <h3 class="page-title">All Course Schedule</h3>
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Forms</a></li>
@@ -35,27 +35,26 @@
         
           <div class="card">
             <div class="card-body">
-             <form class="forms-sample" method="post" action="{{route('lesson.store')}}" enctype="multipart/form-data">
+             <form class="forms-sample" method="post" action="{{route('schedule.store')}}" >
               @csrf
                 <div class="form-group">
-                  <label for="exampleInputName1">Lesson Number</label>
-                  <input type="datetime-local" class="form-control" id="exampleInputName1" placeholder="Course Lesson" name="lesson_number" value="{{old('lesson_number')}}">
+                  <label for="exampleInputName1">Start Time</label>
+                  <input type="datetime-local" class="form-control" id="exampleInputName1" placeholder="Course Start time" name="start_time" value="{{old('start_time')}}">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputName1">Ending Time</label>
+                  <input type="datetime-local" class="form-control" id="exampleInputName1" placeholder="Course Ending time" name="ending_time" value="{{old('ending_time')}}">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Course Category</label>
-                    <select name="course_category" id="">
+                    <select name="category" id="">
                       <option value="selected">Course Selected</option>
                       @foreach ($categories as $category)
                       <option value="{{$category->id}}">{{$category->name}}</option>
                       @endforeach
-                   
-
-                    </select>
+                  </select>
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputName1">Lesson Description</label>
-                    <textarea name="desc" id="" cols="60" rows="6"></textarea>
-                  </div>
+                
                   
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <button class="btn btn-dark">Cancel</button>
