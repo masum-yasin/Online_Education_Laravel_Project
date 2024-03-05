@@ -20,6 +20,7 @@
                       <th>Course Name</th>
                       <th>image</th>
                       <th>Course Fee</th>
+                      <th>Course Video</th>
                       <th>Course Category</th>
                       <th>Course Duration</th>
                       <th>Active</th>
@@ -34,6 +35,7 @@
                       <td>{{$course['course_name']}}</td>
                       <td><img src="{{asset('uploads/'.$course->image)}}" alt="" style="width:100px"></td>
                       <td>{{$course['course_fee']}}</td>
+                      <td>{{$course['video']}}</td>
                       <td>{{$course->category->name}}</td>
                       <td>{{$course['course_duration']}}</td>
                       <td>{{$course->status== 1 ? 'Active' :'Inactive'}}</td>

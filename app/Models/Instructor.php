@@ -21,7 +21,7 @@ class Instructor extends Authenticatable
     protected $guard ='instructor';
     use HasFactory;
     protected $fillable = [
-        'instructor_name','email', 'password', 'phone','photo','course_categories_id','lessons_id','topics_id','title','description','video'
+        'instructor_name','email', 'password', 'phone','photo','course_categories_id','lessons_id','topics_id','title','description','course_id'
     ];
     public function category(): BelongsTo
     {
@@ -35,9 +35,10 @@ class Instructor extends Authenticatable
     {
         return $this->belongsTo(Topic::class,'topics_id');
     }
-    public function course(): HasMany
-    {
-        return $this->hasMany(Lesson::class);
-    }
     
+    
+    public function course(): BelongsTo
+    {
+        return $this->belongsTo(Course::class,'course_id');
+    }
 }

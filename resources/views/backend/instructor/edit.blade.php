@@ -53,10 +53,7 @@
                   <label for="exampleInputName1">Instructor Photo</label>
                   <input type="file" class="form-control" id="exampleInputName1" placeholder="Instructor Name" name="photo" value="{{old("photo",$instructors->photo)}}">
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputName1">Video</label>
-                  <input type="text" class="form-control" id="exampleInputName1" placeholder="Instructor Name" name="video" value="{{old("video",$instructors->video)}}">
-                </div>
+              
                
                
                 <div class="form-group mt-4">
@@ -78,6 +75,16 @@
                       <option value="selected">Course Selected</option>
                       @foreach ($lessons as $lesson)
                       <option value="{{$lesson->id}}" @selected(old('lesson',$instructors->lessons_id==$lesson->id))>{{$lesson->lesson_number}}</option>
+                      @endforeach
+                   </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputName1">Lesson Number</label>
+                    <select name="course" id="">
+                      <option value="selected">Course Selected</option>
+                      @foreach ($courses as $course)
+                      <option value="{{$course->id}}" @selected(old('course',$instructors->course_id==$course->id))>{{$course->course_number}}</option>
                       @endforeach
                    </select>
                   </div>

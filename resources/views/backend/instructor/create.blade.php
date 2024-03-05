@@ -71,10 +71,7 @@
                     <label for="exampleInputName1">Description</label>
                     <textarea name="desc" id="" cols="60" rows="6"></textarea>
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputName1">Video</label>
-                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Course Video" name="video" value="{{old("video")}}">
-                  </div>
+               
                   <div class="form-group">
                     <label for="exampleInputName1">Lesson Number</label>
                     <select name="lesson" id="">
@@ -94,6 +91,15 @@
                       <option value="selected">Course Selected</option>
                       @foreach ($topics as $topic)
                       <option value="{{$topic->id}}">{{$topic->topic_title}}</option>
+                      @endforeach
+                   </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputName1">Course Name</label>
+                    <select name="course" id="">
+                      <option value="selected">Course Selected</option>
+                      @foreach ($courses as $course)
+                      <option value="{{$course->id}}">{{$course->course_name}}</option>
                       @endforeach
                    </select>
                   </div>

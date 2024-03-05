@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EditorController;
+use App\Http\Controllers\frontend\CoursesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
@@ -23,9 +24,9 @@ Route::get('about',function(){
     return view('frontend.about');
 })->name('about.us');
 
-Route::get('courses',function(){
-    return view('frontend.course');
-})->name('courses');
+// Route::get('courses',function(){
+//     return view('frontend.course');
+// })->name('courses');
 
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
@@ -36,6 +37,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// Data pass frontend by backend//
+Route::get('courses',[CoursesController::class,'create'])->name('courses');
 
 // Edit dashboard By Editor//
 Route::get('editor/login',[EditorController::class ,'login'])->name('editor.login');

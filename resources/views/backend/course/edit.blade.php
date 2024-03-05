@@ -46,6 +46,10 @@
                   <label for="exampleInputEmail3">Course Duration</label>
                   <input type="text" class="form-control" id="exampleInputEmail4" placeholder="Course Duration" name="course_duration"value="{{old('course_duration')? old('course_duration'):$course['course_duration']}}" >
                 </div>
+                <div class="form-group">
+                  <label for="exampleInputName1">Video</label>
+                  <input type="text" class="form-control" id="exampleInputName1" placeholder="Instructor Name" name="video" value="{{old("video",$instructors->video)}}">
+                </div>
                <div class="form-group">
                   <label for="exampleTextarea1">Description</label>
                   <textarea class="form-control" id="exampleTextarea7" name="desc" rows="4"></textarea>

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('course_name', 100);
             $table->decimal('course_fee', 10, 2);
             $table->tinyInteger('course_category_id');
-        
+            $table->string('video');
             $table->string('course_duration',50);
             $table->string('image',80)->nullable();
             $table->tinyInteger('status')->default('0');

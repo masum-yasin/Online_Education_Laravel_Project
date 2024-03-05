@@ -40,7 +40,10 @@
                     <input type="file" class="form-control" id="exampleInputName2" placeholder="Image" name="image">
                   </div>
                 
-                
+                  <div class="form-group">
+                    <label for="exampleInputName1">Video</label>
+                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Course Video" name="video" value="{{old("video")}}">
+                  </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Course Category ID</label>
                     <select name="course_category" id="exampleInputName3" class="form-control">

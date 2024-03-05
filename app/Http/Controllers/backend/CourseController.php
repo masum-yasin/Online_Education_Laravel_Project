@@ -52,6 +52,7 @@ class CourseController extends Controller
             'course_category_id'=>$request->course_category,
             'course_duration'=>$request->course_duration,
             'description'=>$request->desc,
+            'video' => $request->video,
       
           ];
        }
@@ -98,7 +99,9 @@ class CourseController extends Controller
             $data =[
                 'course_name'=>$request->course_name,
                 'course_fee'=>$request->course_fee,
-                'course_duration'=>$request->course_duration];
+                'course_duration'=>$request->course_duration,
+                'video' => $request->video,
+            ];
 
 
                 $courses->update($data);

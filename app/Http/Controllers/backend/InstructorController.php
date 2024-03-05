@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Models\CourseCategory;
 use App\Models\Instructor;
 use App\Models\Lesson;
@@ -59,8 +60,8 @@ class InstructorController extends Controller
         $categories = CourseCategory::get();
         $lessons = Lesson::get();
         $topics = Topic::get();
-
-        return view('backend.instructor.create', compact('categories', 'lessons', 'topics'));
+        $courses =Course::get(); 
+        return view('backend.instructor.create', compact('categories', 'lessons', 'topics','courses'));
     }
 
     /**
@@ -93,7 +94,8 @@ class InstructorController extends Controller
                 'topics_id' => $request->topic,
                 'descritption' => $request->desc,
                 'title' => $request->title,
-                'video' => $request->video,
+                'course_id' => $request->course,
+               
 
                
 
@@ -123,8 +125,9 @@ class InstructorController extends Controller
         $categories = CourseCategory::get();
         $lessons = Lesson::get();
         $topics = Topic::get();
+        $courses =Course::get(); 
         $instructors = Instructor::find($id);
-        return view('backend.instructor.edit', compact('categories', 'lessons', 'topics', 'instructors'));
+        return view('backend.instructor.edit', compact('categories', 'lessons', 'topics', 'instructors','courses'));
     }
 
     /**
@@ -155,7 +158,8 @@ class InstructorController extends Controller
                 'topics_id' => $request->topic,
                 'description' => $request->desc,
                 'title' => $request->title,
-                'video' => $request->video,
+                'course_id' => $request->course,
+             
              
 
             ];
