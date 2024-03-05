@@ -232,6 +232,30 @@
         </div>
       </li>
 
+
+      {{-- Schedule Course Routing --}}
+
+      <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#scategory" aria-expanded="false" aria-controls="scourse">
+          <span class="menu-icon">
+            <i class="mdi mdi-security"></i>
+          </span>
+          <span class="menu-title">Course Schedule</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="scategory">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href=" {{route('schedule.create')}}">
+              
+              Schedule</a></li>
+          
+           
+            <li class="nav-item"> <a class="nav-link" href=" {{route('schedule.index')}}">All Student Scheudle</a></li>
+        
+          </ul>
+        </div>
+      </li>
+
       {{-- Course Lesson --}}
       <li class="nav-item menu-items">
         <a class="nav-link" data-toggle="collapse" href="#lesson" aria-expanded="false" aria-controls="lesson">

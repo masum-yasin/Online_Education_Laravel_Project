@@ -14,6 +14,7 @@ use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\InstructorController;
 use App\Http\Controllers\backend\LessonController;
 use App\Http\Controllers\backend\SCategoryController;
+use App\Http\Controllers\backend\ScheduleController;
 use App\Http\Controllers\backend\SCourseController;
 use App\Http\Controllers\backend\TopicController;
 use App\Models\Instructor;
@@ -113,7 +114,10 @@ Route::middleware('auth')->group(function () {
                     Route::get('insdashboard', [InstructorController::class, 'Insdashboard'])
                     ->name('insdashboard')
                     ->middleware('instructor');
-                    // Route::get('instructor/dashboard', [InstructorController::class, 'dashboard'])->name('dashboard.ins')->middleware('instructor');
+
+
+                //    Course Schedule Routing//
+                Route::resource('schedule',ScheduleController::class);
 
 
           
