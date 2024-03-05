@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EditorController;
 use App\Http\Controllers\frontend\CoursesController;
+use App\Http\Controllers\frontend\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
@@ -47,5 +48,7 @@ Route::post('editor/login',[EditorController::class,'store'])->name('EditorLogin
 Route::post('editor/logout',[EditorController::class,'logout'])->name('editor.logout');
 Route::get('editor/edashboard',[EditorController::class,'edashboard'])->name('editor.edashboard')->middleware('editor');
 
+// Frontend Order Stap                                              
+Route::get('orderDetalils/{id}',[OrderController::class,'create'])->name('order.Details');
 
 require __DIR__.'/auth.php';

@@ -48,23 +48,11 @@
                             </a>
                             <p>Which whose darkness saying were life unto fish wherein all fish of together called</p>
                             <div class="author_info">
-                                <div class="author_img">
-                                    <img src="frontend/assets/img/author/author_1.png" alt="">
-                                    <div class="author_info_text">
-                                        <p>Conduct by:</p>
-                                        <h5><a href="#">James Well</a></h5>
+                               
+                                    <div class="d-flex justify-content-center">
+                                        <button class="btn btn-warning"><a href="{{route('order.Details',$course->id)}}">Course Details</a></button>
                                     </div>
-                                </div>
-                                <div class="author_rating">
-                                    <div class="rating">
-                                        <a href="#"><img src="frontend/assets/img/icon/color_star.svg" alt=""></a>
-                                        <a href="#"><img src="frontend/assets/img/icon/color_star.svg" alt=""></a>
-                                        <a href="#"><img src="frontend/assets/img/icon/color_star.svg" alt=""></a>
-                                        <a href="#"><img src="frontend/assets/img/icon/color_star.svg" alt=""></a>
-                                        <a href="#"><img src="frontend/assets/img/icon/star.svg" alt=""></a>
-                                    </div>
-                                    <p>3.8 Ratings</p>
-                                </div>
+                          
                             </div>
                         </div>
 
