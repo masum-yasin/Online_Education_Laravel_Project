@@ -57,6 +57,7 @@ class InstructorController extends Controller
      */
     public function create()
     {
+        
         $categories = CourseCategory::get();
         $lessons = Lesson::get();
         $topics = Topic::get();

@@ -53,6 +53,9 @@
                             @endforeach
                     </select>
                   </div>
+              
+           
+
                   <div class="form-group">
                     <label for="exampleInputName1">Course Fee</label>
                     <input type="text" class="form-control" id="exampleInputName2" placeholder="Course Fee" name="course_fee" value="{{old('course_fee')}}">

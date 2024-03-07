@@ -41,19 +41,23 @@
                     <div class="single_special_cource">
                         <img src="{{asset('uploads/'.$course->image)}} "class="special_img" alt="">
                         <div class="special_cource_text">
-                            <a href="course-details.html" class="btn_4">Course Category:         {{$course->category->name}}</a>
-                            <h4>${{$course->course_fee}}</h4>
-                            <a href="course-details.html">
+                            <a href="course-details.html" class="btn_4">                                                    {{$course->category->name}}</a>
+                                    <h4>${{$course->course_fee}}</h4>
+                                        <a href="{{route('order.Details',$course->id)}}">
                                 <h3>{{$course->course_name}}</h3>
-                            </a>
-                            <p>Which whose darkness saying were life unto fish wherein all fish of together called</p>
-                            <div class="author_info">
+                                     </a>
+                           
+                                    <div class="author_info">
+                                        <img src="frontend/assets/img/author/author_1.png" alt="">
+                                    <div class="author_info_text">
+                                        <p>Conduct by:</p>
+                                        <h5><a href="#">James Well</a></h5>
+                                    </div>
                                
                                     <div class="d-flex justify-content-center">
                                         <button class="btn btn-warning"><a href="{{route('order.Details',$course->id)}}">Course Details</a></button>
                                     </div>
-                          
-                            </div>
+                                </div>
                         </div>
 
                     </div>

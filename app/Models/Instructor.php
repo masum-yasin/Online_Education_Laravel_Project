@@ -41,4 +41,8 @@ class Instructor extends Authenticatable
     {
         return $this->belongsTo(Course::class,'course_id');
     }
+    
+
+   
+    
 }
