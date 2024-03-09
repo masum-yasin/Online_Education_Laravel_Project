@@ -134,7 +134,7 @@
                         </li>
 
                     </ul>
-                    <a href="#" class="btn_1 d-block">Enroll the course</a>
+                    <a href="{{route('orderform')}}" class="btn_1 d-block">Enroll the course</a>
                 </div>
 
                 <h4 class="title">Reviews</h4>

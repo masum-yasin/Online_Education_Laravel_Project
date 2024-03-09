@@ -23,8 +23,9 @@ class ScheduleController extends Controller
      */
     public function create()
     {
+        $schedule = Schedule::all();
         $categories = CourseCategory::get();
-        return view('backend.schedule.create',compact('categories'));
+        return view('backend.schedule.create',compact('categories','schedule'));
     }
 
     /**

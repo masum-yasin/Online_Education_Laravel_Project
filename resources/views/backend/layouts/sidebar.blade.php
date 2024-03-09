@@ -236,14 +236,14 @@
       {{-- Schedule Course Routing --}}
 
       <li class="nav-item menu-items">
-        <a class="nav-link" data-toggle="collapse" href="#scategory" aria-expanded="false" aria-controls="scourse">
+        <a class="nav-link" data-toggle="collapse" href="#schedule" aria-expanded="false" aria-controls="schedule">
           <span class="menu-icon">
             <i class="mdi mdi-security"></i>
           </span>
           <span class="menu-title">Course Schedule</span>
           <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="scategory">
+        <div class="collapse" id="schedule">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href=" {{route('schedule.create')}}">
               

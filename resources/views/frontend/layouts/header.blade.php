@@ -36,7 +36,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Contact</a>
+                                <a class="nav-link" href="{{route('contact')}}">Contact</a>
                             </li>
                             <li class="d-none d-lg-block">
                                 <a class="btn_1" href="#">Get a Quote</a>

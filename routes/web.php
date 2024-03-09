@@ -24,6 +24,13 @@ Route::get('/', function () {
 Route::get('about',function(){
     return view('frontend.about');
 })->name('about.us');
+Route::get('contact',function(){
+    return view('frontend.contact');
+})->name('contact');
+Route::get('orderform',function(){
+    return view('frontend.order.orderform');
+})->name('orderform');
+
 
 // Route::get('courses',function(){
 //     return view('frontend.course');

@@ -27,9 +27,9 @@ class CourseController extends Controller
      */
     public function create()
     {
-        $data['courses'] = Course::all();
-        $data['instructors'] = Instructor::all(); // Fetch all instructors
-        return view('backend.course.create', $data);
+        $categories = CourseCategory::all();
+        $instructors = Instructor::all(); // Fetch all instructors
+        return view('backend.course.create',compact('instructors','categories'));
     }
 
     /**
